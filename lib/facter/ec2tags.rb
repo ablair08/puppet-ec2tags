@@ -1,10 +1,9 @@
 Facter.add(:group) do
   confine do
-    Facter.value(:group)
+    Facter.value(:ec2_tags)
   end
   setcode do
-    group = "test"
-    # Facter.value(:ec2_tags)['group']
+    group = Facter.value(:ec2_tags)['group']
     group
   end
 end
