@@ -1,3 +1,12 @@
+Facter.add(:group) do
+  confine do
+    Facter.value(:group)
+  end
+  # setcode do
+  #   group = Facter.value(:ec2_tags)['group']
+  #   group
+  # end
+end
 
 Facter.add(:ec2_region) do
   confine do
@@ -35,15 +44,4 @@ Facter.add(:ec2_tags) do
     end
     taghash
   end
-
-  Facter.add(:group) do
-    confine do
-      Facter.value(:group)
-    end
-    setcode do
-      group = Facter.value(:ec2_tags)['group']
-      group
-    end
-  end
-
 end
