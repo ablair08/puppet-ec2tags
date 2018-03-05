@@ -1,11 +1,12 @@
 Facter.add(:group) do
-  # confine do
-  #   Facter.value(:group)
-  # end
-  # setcode do
-  #   group = Facter.value(:ec2_tags)['group']
-  #   group
-  # end
+  confine do
+    Facter.value(:group)
+  end
+  setcode do
+    group = "test"
+    # Facter.value(:ec2_tags)['group']
+    group
+  end
 end
 
 Facter.add(:ec2_region) do
